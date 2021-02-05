@@ -20,7 +20,7 @@ namespace JáratKezelő
             {
                 if (jarat.JaratSzam.Equals(jaratSzam))
                 {
-                    throw new ArgumentException("Ilyen járat már van");
+                    throw new ArgumentException("Ilyen járat már létezik");
                 }
             }
             jaratok.Add(jaratt);
