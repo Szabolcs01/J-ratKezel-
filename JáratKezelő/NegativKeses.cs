@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace JáratKezelő
 {
-    class NegativKeses:Exception
+    class NegativKesesException : Exception
     {
-        public NegativKeses(string jaratSzam, int keses)
+        public NegativKesesException(string jaratSzam, int keses)
            : base("Nem lehet negatív szám a késés! Járat: " + jaratSzam + " Késés: " + keses)
         {
         }

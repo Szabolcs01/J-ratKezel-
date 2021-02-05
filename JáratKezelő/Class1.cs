@@ -28,7 +28,7 @@ namespace JáratKezelő
             jarat.keses = keses;
             if (keses<0)
             {
-                throw new NegativKeses(jaratSzam, keses);
+                throw new NegativKesesException(jaratSzam, keses);
             }
         }
 
