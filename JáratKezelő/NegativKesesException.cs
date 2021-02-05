@@ -12,5 +12,7 @@ namespace JáratKezelő
           : base("Nem lehet negatív szám a késés! Járat: " + jaratSzam + " Késés: " + keses)
         {
         }
+
+
     }
 }
