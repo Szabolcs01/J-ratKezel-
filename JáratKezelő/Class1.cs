@@ -32,9 +32,21 @@ namespace JáratKezelő
             }
         }
 
+        public DateTime MikorIndul(string jaratSzam)
+        {
+            DateTime datum = new DateTime();
+            jarat.jarat = jaratSzam;
+            jarat.indulas = datum;
+            return datum;
+        }
 
-
-
+        public List<string> Jaratokrepuloterrol(string repter)
+        {
+            List<string> jaratok = new List<string>();
+            jarat.honnanRepter = repter;
+            jaratok.Add(repter);
+            return jaratok;
+        }
 
 
 
