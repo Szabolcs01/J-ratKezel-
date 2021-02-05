@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Jarat.cs" />
+    <Compile Include="NegativKeses.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test\JaratKezeloTest.cs" />
   </ItemGroup>
