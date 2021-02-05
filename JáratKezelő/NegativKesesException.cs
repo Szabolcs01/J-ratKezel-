@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace JáratKezelő
 {
-    class NegativKesesException : Exception
+    class NegativKesesException:Exception
     {
         public NegativKesesException(string jaratSzam, int keses)
-           : base("Nem lehet negatív szám a késés! Járat: " + jaratSzam + " Késés: " + keses)
+          : base("Nem lehet negatív szám a késés! Járat: " + jaratSzam + " Késés: " + keses)
         {
         }
     }

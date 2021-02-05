@@ -8,57 +8,76 @@ namespace JáratKezelő
 {
     public class JaratKezelo
     {
-        Jarat jarat = new Jarat();
+        List<Jarat> jaratok = new List<Jarat>();
+        Jarat jarat;
 
         public void UjJarat(string jaratSzam, string repterHonnan, string repterHova, DateTime indulas)
         {
-            List<Jarat> jaratok = new List<Jarat>();
 
-            jarat.jarat = jaratSzam;
-            jarat.honnanRepter = repterHonnan;
-            jarat.hovaRepter = repterHova;
-            jarat.indulas = indulas;
+
+            var jaratt = new Jarat(jaratSzam, repterHonnan, repterHova, indulas);
+            foreach (var jarat in jaratok)
+            {
+                if (jarat.JaratSzam.Equals(jaratSzam))
+                {
+                    throw new ArgumentException("Ilyen járat már van");
+                }
+            }
+            jaratok.Add(jaratt);
 
 
         }
 
-        public void Keses(string jaratSzam, int keses)
+        public void Keses(string jaratszam, int keses)
         {
-            jarat.jarat = jaratSzam;
-            jarat.keses = keses;
-            if (keses<0)
+            foreach (var jarat in jaratok)
             {
-                throw new NegativKesesException(jaratSzam, keses);
+                if (jaratszam.Equals(jarat.JaratSzam))
+                {
+                    if ((jarat.Keses + keses) < 0)
+                    {
+                        throw new NegativKesesException(jaratszam,keses);
+                    }
+                    else
+                    {
+                        jarat.Keses += keses;
+                    }
+                }
             }
         }
 
         public DateTime MikorIndul(string jaratSzam)
         {
-            DateTime datum = new DateTime();
-            jarat.jarat = jaratSzam;
-            jarat.indulas = datum;
-            return datum;
+            foreach (var jarat in jaratok)
+            {
+                if (jaratSzam.Equals(jarat.JaratSzam))
+                {
+                    return jarat.Indulas.AddMinutes(jarat.Keses);
+                }
+            }
+            throw new ArgumentException("Nem volt ilyen járat!");
         }
 
         public List<string> Jaratokrepuloterrol(string repter)
         {
-            List<string> jaratok = new List<string>();
-            jarat.honnanRepter = repter;
-            jaratok.Add(repter);
-            return jaratok;
+            List<string> jaratokList = new List<string>();
+            foreach (var jarat in jaratok)
+            {
+                if (repter.Equals(jarat.HonnanRepter))
+                {
+                    jaratokList.Add(jarat.JaratSzam);
+
+                }
+            }
+            if (jaratokList.Count == 0)
+            {
+                throw new ArgumentException();
+            }
+            return jaratokList;
         }
 
 
 
 
-        class Jarat
-        {
-
-            public string jarat { get; set; }
-            public string honnanRepter { get; set; }
-            public string hovaRepter { get; set; }
-            public DateTime indulas { get; set; }
-            public int keses { get; set; }
-        }
     }
 }

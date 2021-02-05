@@ -8,14 +8,24 @@ namespace JáratKezelő
 {
     class Jarat
     {
-        private string jaratszam;
-        private string honnanRepter;
-        private string hovaRepte;
-        private DateTime indulas;
-        private int keses;
+        string jaratSzam;
+        string honnanRepter;
+        string hovaRepter;
+        DateTime indulas;
+         public Jarat(string jaratSzam, string honnanRepter, string hovaRepter, DateTime indulas)
+        {
+            JaratSzam = jaratSzam;
+            HonnanRepter = honnanRepter;
+            HovaRepter = hovaRepter;
+            Indulas = indulas;
+            Keses = 0;
+        }
 
-     
-
+        public string JaratSzam { get; set; }
+        public string HonnanRepter { get; set; }
+        public string HovaRepter { get; set; }
+        public DateTime Indulas { get; set; }
+        public int Keses { get; set; }
    
 
 
