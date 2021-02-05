@@ -102,7 +102,7 @@ namespace JáratKezelő.Test
             jaratKezelo.Keses("120", 0);
 
             jaratKezelo.UjJarat("22", "Kecskemét", "Madrid", new DateTime(2021, 2, 5, 13, 8, 10));
-            jaratKezelo.Keses("22", 0);
+            jaratKezelo.Keses("22", -98);
 
             Assert.Throws<NegativKesesException>(
                 () =>
@@ -122,12 +122,12 @@ namespace JáratKezelő.Test
             jaratKezelo.UjJarat("120", "London", "Parizs", new DateTime(2021, 2, 5, 13, 8, 10));
             Assert.AreEqual(new DateTime(2021, 2, 5, 13, 8, 10), jaratKezelo.MikorIndul("120"));
 
-            jaratKezelo.UjJarat("22", "Kecskemét", "Madrid", new DateTime(2021, 2, 5, 13, 8, 10));
+            jaratKezelo.UjJarat("10", "Kecskemét", "Madrid", new DateTime(2021, 2, 5, 13, 8, 10));
             Assert.AreEqual(new DateTime(2021, 2, 5, 13, 8, 10), jaratKezelo.MikorIndul("22"));
         }
 
         [TestCase]
-        public void KetJaratUANevTest()
+        public void KetJarat()
         {
             jaratKezelo.UjJarat("87", "BudaPest", "Berlin", new DateTime(2021, 2, 5, 13, 8, 10));
             jaratKezelo.UjJarat("120", "London", "Parizs", new DateTime(2021, 2, 5, 13, 8, 10));
@@ -137,7 +137,7 @@ namespace JáratKezelő.Test
                 {
                     jaratKezelo.UjJarat("87", "BudaPest", "Berlin", new DateTime(2021, 2, 5, 13, 8, 10));
                     jaratKezelo.UjJarat("120", "London", "Parizs", new DateTime(2021, 2, 5, 13, 8, 10));
-                    jaratKezelo.UjJarat("120", "Kecskemét", "Madrid", new DateTime(2021, 2, 5, 13, 8, 10));
+                    jaratKezelo.UjJarat("22", "Kecskemét", "Madrid", new DateTime(2021, 2, 5, 13, 8, 10));
                 }
             );
 
